@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function Signup(){
+export default function Login(){
     return(
         <div>
             <header>
@@ -17,11 +17,7 @@ export default function Signup(){
                 </label>
                 <label>
                     Password:
-                    <input type="text" placeholder="password" minLength="7"></input>
-                </label>
-                <label>
-                    Confirm Password:
-                    <input type="text" placeholder="password" minLength="7"></input>
+                    <input type="text" placeholder="password"></input>
                 </label>
                 <input type="submit" value="submit"></input>
             </form>
