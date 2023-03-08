@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Room from "./components/pages/Room";
+
 import { io } from "socket.io-client";
+
 function App() {
     const socket = io("http://localhost:8080", {});
     socket.on("connection", () => {
