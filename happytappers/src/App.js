@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Room from "./components/pages/Room";
 import Signup from "./components/pages/Signup";
+import Login from "./components/pages/Login";
+import Profile from "./components/pages/Profile";
 
 import { io } from "socket.io-client";
 
@@ -18,10 +20,11 @@ function App() {
                 <Route path="/" element={<Home />} />
                 {/* 
                 <Route path="/signup" element={<Dashboard />} />
-                <Route path="/profile/:userId" element={<Profile/>}/> */}
+                */}
                 <Route path="/room" element={<Room />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/profile/:userId" element={<Profile/>}/>
             </Routes>
         </BrowserRouter>
     );
