@@ -1,16 +1,15 @@
-
-import { BrowserRouter, Routes, Route } from 
-"react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/pages/Home";
 import Room from "./components/pages/Room";
-import{ io } from "socket.io-client";
+
+import { io } from "socket.io-client";
+
 function App() {
-    const socket = io("http://localhost:8080", {
+    const socket = io("http://localhost:8080", {});
+    socket.on("connection", () => {
+        console.log(`I'm connected with the back-end`);
     });
-      socket.on('connection', () => {
-          console.log(`I'm connected with the back-end`);
-  });
     return (
         <BrowserRouter>
             <Routes>
