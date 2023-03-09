@@ -4,23 +4,27 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export default function Login(){
-    return(
+export default function Login() {
+    return (
         <Container fluid className="vh-100">
             <h1 className="p-4 m-5 text-center">Happy Tappers</h1>
             <NavLink to="/">
-            <Button variant="primary" className="mb-3">Home </Button>
-          </NavLink>
+                <Button variant="primary" className="mb-3">
+                    Home{" "}
+                </Button>
+            </NavLink>
 
-        <Form.Floating className="mb-3">
-            <Form.Control id="floatingInputCustom" type="text" placeholder="username"></Form.Control>
-            <label htmlFor="floatingInputCustom">Username</label>
-        </Form.Floating> 
-        <Form.Floating>
-            <Form.Control id="floatingPasswordCustom" className="mb-3" type="password" placeholder="password"/>
-            <label htmlFor="floatingPasswordCustom">Password</label>
-        </Form.Floating>    
-        <Button variant="primary" type="submit">Login</Button>   
+            <Form.Floating className="mb-3">
+                <Form.Control id="floatingInputCustom" type="text" placeholder="username"></Form.Control>
+                <label htmlFor="floatingInputCustom">Username</label>
+            </Form.Floating>
+            <Form.Floating>
+                <Form.Control id="floatingPasswordCustom" className="mb-3" type="password" placeholder="password" />
+                <label htmlFor="floatingPasswordCustom">Password</label>
+            </Form.Floating>
+            <Button variant="primary" type="submit">
+                Login
+            </Button>
         </Container>
-    )
+    );
 }
