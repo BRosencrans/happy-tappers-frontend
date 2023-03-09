@@ -7,6 +7,7 @@ import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
 import Dashboard from "./components/pages/Dashboard";
+import Footer from "./components/footer";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile/:userId" element={<Profile />} />
             </Routes>
+            <Footer/>
         </BrowserRouter>
     );
 }
