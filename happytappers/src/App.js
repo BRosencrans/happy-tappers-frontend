@@ -5,24 +5,19 @@ import Room from "./components/pages/Room";
 import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
-
-
+import Dashboard from "./components/pages/Dashboard";
 
 function App() {
- 
-   
     return (
         <BrowserRouter>
             <Routes>
                 {/* Routes for pages initiated. Needed room page to see how the tiles should look and to work on game logic. */}
                 <Route path="/" element={<Home />} />
-                {/* 
-                <Route path="/signup" element={<Dashboard />} />
-                */}
-                <Route path="/room" element={<Room />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/room/:roomId" element={<Room />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/profile/:userId" element={<Profile/>}/>
+                <Route path="/profile/:userId" element={<Profile />} />
             </Routes>
         </BrowserRouter>
     );
