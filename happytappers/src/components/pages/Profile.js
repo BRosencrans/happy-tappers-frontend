@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import AvatarEditor from "react-avatar-editor";
 
 export default function Profile() {
     return (
@@ -25,11 +26,13 @@ export default function Profile() {
             </Col>
             <Col xs={6} className="text-center">High Score</Col>
             <Col>
-            {/*Insert avatar */}
+                {/*<AvatarEditor
+                    image={''}
+                    width={150}
+                    height={150}>
+    </AvatarEditor>*/}
             </Col>
             </Row>
-           
-        
         </Container>
     );
 }
