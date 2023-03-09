@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { io } from "socket.io-client";
 
 export default function Home() {
     return (
@@ -36,15 +35,6 @@ export default function Home() {
             <Card className="p-4 m-5">
                 <h3 className="text-center">High Score</h3>
             </Card>
-            <form>
-                <input type="text" minlength="4" />
-                <NavLink to="/room">
-                    <button>Join Room</button>
-                </NavLink>
-            </form>
-            <NavLink to="/room">
-                <button>Create Room</button>
-            </NavLink>
         </Container>
     );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function Login(){
-    return(
+export default function Login() {
+    return (
         <div>
             <header>
                 <h1>Happy Tappers</h1>
@@ -22,5 +22,5 @@ export default function Login(){
                 <input type="submit" value="submit"></input>
             </form>
         </div>
-    )
+    );
 }
