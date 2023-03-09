@@ -24,6 +24,7 @@ export default function Signup(){
             <Form.Floating>
                 <Form.Control id="floatingPasswordCustom" className="mb-3" type="password" placeholder="password"/>
                 <label htmlFor="floatingPasswordCustom">Confirm Password</label>
+                <Button variant="primary" type="submit">Submit</Button> 
     </Form.Floating>
         </Container>
     )
