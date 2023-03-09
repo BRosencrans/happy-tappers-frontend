@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { io } from "socket.io-client";
 
 export default function RoomButtons() {
     const [roomId, setRoomId] = useState("");
@@ -20,7 +20,9 @@ export default function RoomButtons() {
     function createRoom(e) {
         e.preventDefault();
         navigate(`/room/${roomId}`);
-       
+      
+        const socket = io("http://localhost:8080")
+        socket.emit("new-room", (`${roomId}`)) 
         // redirect over to room page since no param, there will need to be a way to check a null param and create a room code from there.
     }
 

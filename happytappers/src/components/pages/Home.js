@@ -37,7 +37,7 @@ export default function Home() {
         <h3 className='text-center'>High Score</h3>
       </Card>
             <form>
-                <input type="text" minlength="4" />
+                <input type="text" minLength="4" />
                 <NavLink to="/room">
                     <button>Join Room</button>
                 </NavLink>
