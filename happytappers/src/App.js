@@ -6,13 +6,11 @@ import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
 
-import { io } from "socket.io-client";
+
 
 function App() {
-    const socket = io("http://localhost:8080", {});
-    socket.on("connection", () => {
-        console.log(`I'm connected with the back-end`);
-    });
+ 
+   
     return (
         <BrowserRouter>
             <Routes>

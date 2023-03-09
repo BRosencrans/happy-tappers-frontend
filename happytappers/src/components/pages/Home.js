@@ -5,8 +5,24 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import io  from "socket.io-client";
+const socket = io.connect("http://localhost:8080", );
+const newGame = () =>{
+    socket.on("newGame", (room) => {
+        console.log(room); 
+      });
+
+}
+socket.on("connect", () => {
+    console.log(`I'm connected with the back-end`);
+  
+});
 
 
+ 
+socket.on("newGame", (room) => {
+    console.log(room); 
+  });
 export default function Home() {
     return (
         <Container fluid className="vh-100">
@@ -43,7 +59,7 @@ export default function Home() {
                 </NavLink>
             </form>
             <NavLink to="/room">
-                <button>Create Room</button>
+                <button onClick= {newGame}>Create Room</button>
             </NavLink>
         </Container>
     );
