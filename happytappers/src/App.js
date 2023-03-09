@@ -12,9 +12,7 @@ function App() {
             <Routes>
                 {/* Routes for pages initiated. Needed room page to see how the tiles should look and to work on game logic. */}
                 <Route path="/" element={<Home />} />
-                {/* 
-                <Route path="/signup" element={<Dashboard />} />
-                */}
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/room" element={<Room />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
