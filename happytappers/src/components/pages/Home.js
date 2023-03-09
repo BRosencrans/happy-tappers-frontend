@@ -1,26 +1,50 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import { io } from "socket.io-client";
 
-function Home() {
-    const socket = io("http://localhost:8080", {});
-    socket.on("connection", () => {
-        console.log(`I'm connected with the back-end`);
-    });
-
+export default function Home() {
     return (
-        <div>
+        <Container fluid className="vh-100">
+            <h1 className="p-4 m-5 text-center">Happy Tappers</h1>
+            <Row>
+                <br />
+                <Col className="text-center">
+                    <Card className="p-4 m-5">
+                        <div className="mb-2">
+                            <Button variant="primary" size="lg">
+                                Login
+                            </Button>{" "}
+                        </div>
+                    </Card>
+                </Col>
+                <Col className="text-center">
+                    <Card className="p-4 m-5">
+                        <div className="mb-2">
+                            <Button variant="primary" size="lg">
+                                Signup
+                            </Button>{" "}
+                        </div>
+                    </Card>
+                </Col>
+            </Row>
+            <br />
+            <Card className="p-4 m-5">
+                <h3 className="text-center">High Score</h3>
+            </Card>
             <form>
-                <input type="text" minLength="4" />
-                <NavLink to="/room/:roomId">
+                <input type="text" minlength="4" />
+                <NavLink to="/room">
                     <button>Join Room</button>
                 </NavLink>
             </form>
-            <NavLink to="/room/:roomId">
+            <NavLink to="/room">
                 <button>Create Room</button>
             </NavLink>
-        </div>
+        </Container>
     );
 }
-
-export default Home;
