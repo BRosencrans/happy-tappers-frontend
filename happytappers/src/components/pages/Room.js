@@ -11,10 +11,11 @@ let assignedTiles = [];
 
 export default function Room() {
     const socket = io("http://localhost:8080", {});
+    const { roomId } = useParams();
+    console.log("Room loaded");
     socket.on("connection", () => {
         console.log(`I'm connected with the back-end`);
     });
-    const { roomId } = useParams();
 
     useEffect(() => {}, [socket, roomId]);
     console.log(roomId);
