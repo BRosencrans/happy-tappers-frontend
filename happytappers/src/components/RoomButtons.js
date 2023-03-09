@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
+
 export default function RoomButtons() {
     const [roomId, setRoomId] = useState("");
     const navigate = useNavigate();
@@ -18,7 +19,8 @@ export default function RoomButtons() {
 
     function createRoom(e) {
         e.preventDefault();
-        navigate("/room");
+        navigate(`/room/${roomId}`);
+       
         // redirect over to room page since no param, there will need to be a way to check a null param and create a room code from there.
     }
 
