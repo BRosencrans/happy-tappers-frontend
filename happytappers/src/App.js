@@ -11,14 +11,6 @@ function App() {
         <BrowserRouter>
             <Routes>
                 {/* Routes for pages initiated. Needed room page to see how the tiles should look and to work on game logic. */}
-<<<<<<< HEAD
-                <Route path="/" exact element={<Home />} />
-                {/* <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/signup" element={<Dashboard />} />
-                <Route path="/profile/:userId" element={<Profile/>}/> */}
-                <Route path="/room/:roomId" element={<Room />} />
-=======
                 <Route path="/" element={<Home />} />
                 {/* 
                 <Route path="/signup" element={<Dashboard />} />
@@ -26,8 +18,7 @@ function App() {
                 <Route path="/room" element={<Room />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/profile/:userId" element={<Profile/>}/>
->>>>>>> dev
+                <Route path="/profile/:userId" element={<Profile />} />
             </Routes>
         </BrowserRouter>
     );
