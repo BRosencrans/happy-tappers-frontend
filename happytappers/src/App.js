@@ -7,7 +7,7 @@ import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
 import Dashboard from "./components/pages/Dashboard";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 function App() {
     const socket = io("http://localhost:8080");
