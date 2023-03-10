@@ -4,6 +4,7 @@ import { Container, Button, Row, Col } from "react-bootstrap";
 import AvatarEditor from "react-avatar-editor";
 import RoomButtons from "../RoomButtons";
 import HighScore from "../HighScore";
+import LogoutButton from "../LogoutButton";
 
 export default function Profile() {
     return (
@@ -17,12 +18,7 @@ export default function Profile() {
                     </NavLink>
                 </Col>
                 <Col className="d-flex justify-content-end">
-                    <NavLink to="/">
-                        {/* TODO: make logout functionality work */}
-                        <Button variant="primary" size="lg">
-                            Logout
-                        </Button>
-                    </NavLink>
+                    <LogoutButton />
                 </Col>
             </Row>
             <Row>

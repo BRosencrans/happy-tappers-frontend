@@ -1,6 +1,7 @@
 import React from "react";
 import RoomButtons from "../RoomButtons";
 import HighScore from "../HighScore";
+import LogoutButton from "../LogoutButton";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
@@ -17,12 +18,7 @@ export default function Dashboard() {
                     </NavLink>
                 </Col>
                 <Col className="d-flex justify-content-end">
-                    <NavLink to="/">
-                        {/* TODO: make logout functionality work */}
-                        <Button variant="primary" size="lg">
-                            Logout
-                        </Button>
-                    </NavLink>
+                    <LogoutButton />
                 </Col>
             </Row>
             <Row>
