@@ -1,3 +1,4 @@
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { io } from "socket.io-client";
 import Home from "./components/pages/Home";
@@ -8,15 +9,16 @@ import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
 import Dashboard from "./components/pages/Dashboard";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
     const socket = io("http://localhost:8080");
     socket.on("connect", () => {
         console.log(`I'm connected with the back-end`);
-    
     });
     return (
         <BrowserRouter>
+            <Header />
             <Routes>
                 {/* Routes for pages initiated. Needed room page to see how the tiles should look and to work on game logic. */}
                 <Route path="/" element={<Home />} />
@@ -27,7 +29,8 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile/:userId" element={<Profile />} />
             </Routes>
-            <Footer/>
+            <div style={{ flexGrow: "1" }}></div>
+            <Footer />
         </BrowserRouter>
     );
 }

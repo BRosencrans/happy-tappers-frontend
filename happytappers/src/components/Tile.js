@@ -1,7 +1,8 @@
 import React from "react";
 
 function Tile(props) {
-    return <div className="tile" key={props.id}></div>;
+    const id = "tiles" + props;
+    return <div className="tile" key={props} id={id}></div>;
 }
 
 export default Tile;

@@ -1,0 +1,9 @@
+h1 {
+    margin: 30px auto;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

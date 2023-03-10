@@ -1,37 +1,40 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import RoomButtons from "../RoomButtons";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Button, Row, Col } from "react-bootstrap";
 import AvatarEditor from "react-avatar-editor";
+import RoomButtons from "../RoomButtons";
+import HighScore from "../HighScore";
+import LogoutButton from "../LogoutButton";
 
 export default function Profile() {
     return (
-        <Container fluid className="vh-100">
-                <h1 className="p-4 m-5 text-center">Happy Tappers</h1>
-                <NavLink to="/">
-                    <Button variant="primary" className="m-3">Home</Button>
-                </NavLink>
-            <RoomButtons/>
+        <Container fluid>
+            <Row className="mb-5">
+                <Col>
+                    <NavLink to="/dashboard" exact="true">
+                        <Button variant="primary" size="lg">
+                            Back
+                        </Button>
+                    </NavLink>
+                </Col>
+                <Col className="d-flex justify-content-end">
+                    <LogoutButton />
+                </Col>
+            </Row>
             <Row>
-            <Col>
-            <Form.Floating>
-                <Form.Control id="floatingInputCustom" type="text" placeholder="Enter Room Code" className="mb-3"></Form.Control>
-            </Form.Floating>
-            <Button variant="primary" type="submit" className="mb-3">Join Room</Button>
-            <Button variant="primary" type="submit" className="mb-3">New Room</Button>
-            </Col>
-            <Col xs={6} className="text-center">High Score</Col>
-            <Col>
-                {/*<AvatarEditor
+                <Col xs={12} md={2}>
+                    <RoomButtons />
+                </Col>
+                <Col className="text-center" xs={6} md={5}>
+                    <HighScore />
+                </Col>
+                <Col className="text-center" xs={6} md={5}>
+                    {/*<AvatarEditor
                     image={''}
                     width={150}
                     height={150}>
     </AvatarEditor>*/}
-            </Col>
+                </Col>
             </Row>
         </Container>
     );
