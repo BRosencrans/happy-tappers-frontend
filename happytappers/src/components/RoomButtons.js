@@ -17,6 +17,11 @@ export default function RoomButtons() {
         socket.emit("join-room", (`${roomId}`)) 
         socket.on("join-msg",(text)=>
         {
+            
+            console.log(text)
+        })
+        socket.on("wrong-way",(text)=>
+        {
             console.log(text)
         })
         // need to add functionality to get room code from form value and shoot it as a param in the redirect
