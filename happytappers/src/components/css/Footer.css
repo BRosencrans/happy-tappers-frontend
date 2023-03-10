@@ -1,5 +1,10 @@
 .gitLinks {
     color: black;
-    font-size:larger;
+    font-size: larger;
     font-weight: bolder;
+    text-decoration: none;
+}
+
+#footer {
+    height: 5vh;
 }

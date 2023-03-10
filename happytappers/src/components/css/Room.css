@@ -16,3 +16,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.player-0-tile {
+    background-color: #ffffff;
+}
+
+.player-1-tile {
+    background-color: red;
+}
+.player-2-tile {
+    background-color: blue;
+}
+.player-3-tile {
+    background-color: green;
+}
+.player-4-tile {
+    background-color: yellow;
+}
