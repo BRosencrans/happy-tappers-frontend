@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 export default function Home() {
     return (
         <Container fluid className="vh-100">
-                    <h1 className='p-4 m-5 text-center'>Happy Tappers</h1>
+                    <h1 className='text-center'>Happy Tappers</h1>
       <Row>
         <br/>
         <Col className='text-center'>
