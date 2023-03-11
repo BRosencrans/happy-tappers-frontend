@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Button, Row, Col } from "react-bootstrap";
-import AvatarEditor from "react-avatar-editor";
+//import { Avatar } from "primereact/avatar";
 import RoomButtons from "../RoomButtons";
 import HighScore from "../HighScore";
 import LogoutButton from "../LogoutButton";
+import { Carousel } from "react-bootstrap";
 
 export default function Profile() {
     return (
@@ -29,11 +30,20 @@ export default function Profile() {
                     <HighScore />
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
-                    {/*<AvatarEditor
-                    image={''}
-                    width={150}
-                    height={150}>
-    </AvatarEditor>*/}
+                    <Carousel>
+                        <Carousel.Item>
+                            <img id="penguin" src={require('../../images/penguin.jpeg')}style={{ width:250, height:250}}></img>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img id="penguin" src={require('../../images/IMG_4118.jpeg')}style={{ width:250, height:250}}></img>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img id="penguin" src={require('../../images/IMG_4119.jpeg')}style={{ width:250, height:250}}></img>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img id="penguin" src={require('../../images/IMG_4120.jpeg')}style={{ width:250, height:250}}></img>
+                        </Carousel.Item>
+                     </Carousel>
                 </Col>
             </Row>
         </Container>
