@@ -1,35 +1,17 @@
-#gameboard {
-    height: 70vh;
-    min-width: 60vw;
-    max-width: 400px;
-    border: 3px solid black;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-}
 
-.tile {
-    min-width: 25%;
-    height: 25%;
-    border: 2px solid black;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.player-0-tile {
-    background-color: #ffffff;
-}
-
-.player-1-tile {
-    background-color: red;
-}
-.player-2-tile {
-    background-color: blue;
-}
-.player-3-tile {
-    background-color: green;
-}
-.player-4-tile {
-    background-color: yellow;
-}
+  .card-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
+  /* back of card - cover */
+  .card .back {
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+  }
+  .flipped .back {
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+  }
