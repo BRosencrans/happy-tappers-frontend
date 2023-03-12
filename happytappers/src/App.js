@@ -12,10 +12,10 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 function App() {
-    const socket = io("http://localhost:8080");
-    socket.on("connect", () => {
-        console.log(`I'm connected with the back-end`);
-    });
+ //   const socket = io("http://localhost:8080");
+   // socket.on("connect", () => {
+   //     console.log(`I'm connected with the back-end`);
+   // });
     return (
         <BrowserRouter>
             <Header />
