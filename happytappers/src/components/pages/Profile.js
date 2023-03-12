@@ -32,18 +32,18 @@ export default function Profile() {
                 <Col className="text-center" xs={6} md={5}>
                     <Carousel>
                         <Carousel.Item>
-                            <img id="penguin" src={require('../../images/penguin.jpeg')}style={{ width:250, height:250}}></img>
+                            <img id="penguin" alt="penguin" src={require("../../images/penguin.jpeg")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img id="penguin" src={require('../../images/IMG_4118.jpeg')}style={{ width:250, height:250}}></img>
+                            <img id="penguin" alt="parrot" src={require("../../images/IMG_4118.jpeg")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img id="penguin" src={require('../../images/IMG_4119.jpeg')}style={{ width:250, height:250}}></img>
+                            <img id="penguin" alt="chick" src={require("../../images/IMG_4119.jpeg")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img id="penguin" src={require('../../images/IMG_4120.jpeg')}style={{ width:250, height:250}}></img>
+                            <img id="penguin" alt="parrot 2" src={require("../../images/IMG_4120.jpeg")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
-                     </Carousel>
+                    </Carousel>
                 </Col>
             </Row>
         </Container>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { io } from "socket.io-client";
+import { SocketContext } from "../utils/SocketHelper";
 import { Stack, Form, Button } from "react-bootstrap";
 
-const socket = io("http://localhost:8080");
 export default function RoomButtons() {
+    const socket = useContext(SocketContext);
     const [roomId, setRoomId] = useState("");
     const navigate = useNavigate();
     let roomInput = React.createRef();
