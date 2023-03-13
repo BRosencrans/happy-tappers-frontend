@@ -9,3 +9,7 @@ h1 {
     background-color: #02182B;
     color: white;
 }
+
+label {
+    color: gray;
+}
