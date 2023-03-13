@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import CardTile from "./CardTile";
 import { Button } from "react-bootstrap";
+import { SocketContext } from "../utils/SocketHelper";
+
 const cardImages = [
     { src: "/cards/budgie.png", matched: false },
     { src: "/cards/crane.png", matched: false },
@@ -14,6 +16,8 @@ const cardImages = [
 // ^ array to track what type of bird generated needed in socket logic. In front end use swith case to plug in image.
 
 export default function MemoryGame() {
+    const socket = useContext(SocketContext);
+
     const [cards, setCards] = useState([]);
     const [turns, setTurns] = useState(0);
     const [choiceOne, setChoiceOne] = useState(null);
@@ -22,12 +26,13 @@ export default function MemoryGame() {
 
     // shuffles the cards - backend
     const shuffleCards = () => {
-        const shuffledCards = [...cardImages, ...cardImages].sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random() }));
+        socket.emit("shuffleCards");
+        // const shuffledCards = [...cardImages, ...cardImages].sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random() }));
 
-        setChoiceOne(null);
-        setChoiceTwo(null);
-        setCards(shuffledCards);
-        setTurns(0);
+        // setChoiceOne(null);
+        // setChoiceTwo(null);
+        // setCards(shuffledCards);
+        // setTurns(0);
     };
 
     // handle card choice
@@ -64,8 +69,6 @@ export default function MemoryGame() {
         setChoiceTwo(null);
         setDisabled(false);
     };
-
-    // start new game automatically
 
     return (
         <div className="board">
