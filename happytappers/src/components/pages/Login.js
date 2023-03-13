@@ -16,25 +16,27 @@ export default  function Login() {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:3001/api/users"
+          "Access-Control-Allow-Origin": "http://localhost:3001/"
         },
 
         body: JSON.stringify({
-          username,
-          password,
-        }),
+            username,
+            password,
+          }),
       })
-        .then((res) => res.json())
+       
         .then((data) => {
-          console.log(data, "logged in");
-          if (data.username) {
+          console.log(JSON.stringify(data), "logged in");
+          if (data.token) {
             alert("login successful");
-            window.localStorage.setItem("token", data);
+            window.localStorage.setItem("token", data.token);
            
   
             window.location.href = "./dashboard";
           }
-        });
+          
+        })
+        
 	}
     
     return (
