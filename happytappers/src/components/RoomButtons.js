@@ -54,11 +54,11 @@ export default function RoomButtons() {
                     onChange={handleRoomIdChange}
                 />
                 <br />
-                <Button type="submit" style={{ width: "100%" }} className="m-2">
+                <Button id="btn" type="submit" style={{ width: "100%" }} className="m-2">
                     Join Room
                 </Button>
                 <br />
-                <Button type="submit" onClick={createRoom} style={{ width: "100%" }} className="m-2">
+                <Button id="btn" type="submit" onClick={createRoom} style={{ width: "100%" }} className="m-2">
                     Create Room
                 </Button>
             </Form>

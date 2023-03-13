@@ -53,9 +53,9 @@ export default  function Login() {
                         </Form.Floating>
                         <Form.Floating className="mb-3">
                             <Form.Control id="floatingPasswordCustom" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                            <label htmlFor="floatingPasswordCustom">Password</label>
+                            <label id="pw" htmlFor="floatingPasswordCustom">Password</label>
                         </Form.Floating>
-                        <Button variant="primary" type="submit" size="lg" style={{ width: "100%" }}>
+                        <Button id="btn"variant="primary" type="submit" size="lg" style={{ width: "100%" }}>
                             Login
                         </Button>
                     </Form>

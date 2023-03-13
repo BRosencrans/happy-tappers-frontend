@@ -5,6 +5,7 @@ import LogoutButton from "../LogoutButton";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Leaderboard from "../Leaderboard";
+import "../css/Dashboard.css"
 
 export default function Dashboard() {
 
@@ -14,7 +15,7 @@ export default function Dashboard() {
                 <Col>
                     <NavLink to="/profile/:userId">
                         {/* TODO: change to userId */}
-                        <Button variant="primary" size="lg">
+                        <Button variant="primary" size="lg" id="btn">
                             Profile
                         </Button>
                     </NavLink>
@@ -25,7 +26,7 @@ export default function Dashboard() {
             </Row>
             <Row>
                 <Col xs={12} md={2}>
-                    <RoomButtons />
+                    <RoomButtons/>
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
                     <HighScore />
