@@ -5,6 +5,7 @@ import { useParams, NavLink } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import MemoryGame from "../MemoryGame";
 import Timer from '../Timer';
+import Player from '../../Player'
 
 export default function Room() {
     const { roomId } = useParams();
@@ -21,6 +22,7 @@ export default function Room() {
                         <Button>Exit</Button>
                         <Timer />
                     </NavLink>
+                    <Player />
                 </Col>
             </Row>
             <Row>
