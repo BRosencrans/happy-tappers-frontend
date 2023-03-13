@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 export default function HomeButton() {
     return (
         <NavLink to="/">
-            <Button variant="primary" className="mb-3">
+            <Button id="btn"variant="primary" className="mb-3">
                 Home
             </Button>
         </NavLink>

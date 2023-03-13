@@ -13,7 +13,7 @@ export default function Profile() {
             <Row className="mb-5">
                 <Col>
                     <NavLink to="/dashboard" exact="true">
-                        <Button variant="primary" size="lg">
+                        <Button id="btn"variant="primary" size="lg">
                             Back
                         </Button>
                     </NavLink>
@@ -32,16 +32,16 @@ export default function Profile() {
                 <Col className="text-center" xs={6} md={5}>
                     <Carousel>
                         <Carousel.Item>
-                            <img id="penguin" alt="penguin" src={require("../../images/penguin.jpeg")} style={{ width: 250, height: 250 }}></img>
+                            <img id="penguin" alt="penguin" src={require("../../images/bird1.png")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img id="penguin" alt="parrot" src={require("../../images/IMG_4118.jpeg")} style={{ width: 250, height: 250 }}></img>
+                            <img id="penguin" alt="parrot" src={require("../../images/bird2.png")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img id="penguin" alt="chick" src={require("../../images/IMG_4119.jpeg")} style={{ width: 250, height: 250 }}></img>
+                            <img id="penguin" alt="chick" src={require("../../images/bird3.png")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img id="penguin" alt="parrot 2" src={require("../../images/IMG_4120.jpeg")} style={{ width: 250, height: 250 }}></img>
+                            <img id="penguin" alt="parrot 2" src={require("../../images/bird4.png")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
                     </Carousel>
                 </Col>

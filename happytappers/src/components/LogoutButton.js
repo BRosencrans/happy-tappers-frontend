@@ -10,7 +10,7 @@ export default function LogoutButton() {
     return (
         <NavLink to="/">
             {/* TODO: make logout functionality work */}
-            <Button onClick={logOut} variant="primary" size="lg">
+            <Button onClick={logOut} variant="primary" size="lg" id="btn">
                 Logout
             </Button>
         </NavLink>
