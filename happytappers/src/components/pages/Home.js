@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Leaderboard from "../Leaderboard";
+import "../css/Home.css";
 
 export default function Home() {
     return (
@@ -10,7 +11,7 @@ export default function Home() {
                 <Col className="text-center">
                     <div className="mb-2">
                         <NavLink to="/login" exact="true">
-                            <Button variant="primary" size="lg" style={{ width: "70%" }}>
+                            <Button variant="" className="bts" size="lg" style={{ width: "70%" }}>
                                 Login
                             </Button>
                         </NavLink>
@@ -19,7 +20,7 @@ export default function Home() {
                 <Col className="text-center">
                     <div className="mb-2">
                         <NavLink to="/signup" exact="true">
-                            <Button variant="primary" size="lg" style={{ width: "70%" }}>
+                            <Button variant="" className="bts" size="lg" style={{ width: "70%" }}>
                                 Signup
                             </Button>
                         </NavLink>
@@ -27,7 +28,7 @@ export default function Home() {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="leader">
                     <Leaderboard />
                 </Col>
             </Row>
