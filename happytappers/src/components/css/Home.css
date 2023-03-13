@@ -1,17 +1,9 @@
 
-/* .leader {
-    background-color:#73937E;
-} */
-
-.bts {
-    background-color: #73937E;
+.btn-primary {
+    background-color: #73937E !important;
     color: white;
     
 }
-.bts:hover{
+/* .bts:hover{
     color: #73937E;
-}
-
-/* .container{
-    background-color: black;
 } */
