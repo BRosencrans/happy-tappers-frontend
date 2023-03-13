@@ -4,6 +4,7 @@ import "../css/Room.css";
 import { useParams, NavLink } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import MemoryGame from "../MemoryGame";
+import Timer from '../Timer';
 import Player from '../../Player'
 
 export default function Room() {
@@ -19,6 +20,7 @@ export default function Room() {
                 <Col>
                     <NavLink to="/dashboard" exact="true">
                         <Button>Exit</Button>
+                        <Timer />
                     </NavLink>
                     <Player />
                 </Col>

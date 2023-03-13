@@ -4,6 +4,7 @@ import HighScore from "../HighScore";
 import LogoutButton from "../LogoutButton";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import Leaderboard from "../Leaderboard";
 
 export default function Dashboard() {
 
@@ -30,7 +31,7 @@ export default function Dashboard() {
                     <HighScore />
                 </Col>
                 <Col xs={6} md={5}>
-                    {/* Leaderboard */}
+                    <Leaderboard />
                 </Col>
             </Row>
         </Container>
