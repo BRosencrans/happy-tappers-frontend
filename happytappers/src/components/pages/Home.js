@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import HighScore from "../HighScore";
+import Leaderboard from "../Leaderboard";
 
 export default function Home() {
     return (
@@ -28,7 +28,7 @@ export default function Home() {
             </Row>
             <Row>
                 <Col>
-                    <HighScore />
+                    <Leaderboard />
                 </Col>
             </Row>
         </Container>
