@@ -11,6 +11,7 @@ const cardImages = [
     { src: "/cards//penguin.png", matched: false },
     { src: "/cards/toucan.png", matched: false },
 ];
+// ^ array to track what type of bird generated needed in socket logic. In front end use swith case to plug in image.
 
 export default function MemoryGame() {
     const [cards, setCards] = useState([]);
@@ -19,7 +20,7 @@ export default function MemoryGame() {
     const [choiceTwo, setChoiceTwo] = useState(null);
     const [disabled, setDisabled] = useState(false);
 
-    // shuffles the cards
+    // shuffles the cards - backend
     const shuffleCards = () => {
         const shuffledCards = [...cardImages, ...cardImages].sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random() }));
 
@@ -35,7 +36,7 @@ export default function MemoryGame() {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
     };
 
-    // compares 2 selected cards
+    // compares 2 selected cards - backend
     useEffect(() => {
         if (choiceOne && choiceTwo) {
             setDisabled(true);
@@ -65,9 +66,7 @@ export default function MemoryGame() {
     };
 
     // start new game automatically
-    useEffect(() => {
-        shuffleCards();
-    }, []);
+
     return (
         <div className="board">
             <Button onClick={shuffleCards}>New Game</Button>
