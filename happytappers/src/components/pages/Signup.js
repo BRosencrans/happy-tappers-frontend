@@ -59,7 +59,7 @@ render(){
                             <label htmlFor="floatingPasswordCustom">Confirm Password</label>
                         </Form.Floating>
 
-                        <Button variant="primary" type="submit" size="lg" style={{ width: "100%" }}>
+                        <Button id="btn" variant="primary" type="submit" size="lg" style={{ width: "100%" }}>
                             Submit
                         </Button>
                     </Form>
