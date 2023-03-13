@@ -15,23 +15,25 @@ export default function RoomButtons() {
     function joinRoom(e) {
         e.preventDefault();
         console.log(roomId);
-        navigate(`/room/${roomId}`);
         socket.emit("join-room", `${roomId}`);
         socket.on("join-msg", (text) => {
             console.log(text);
+            navigate(`/room/${roomId}`);
         });
         socket.on("wrong-way", (text) => {
             console.log(text);
+            // TODO: add in error message with useState.
         });
+
         // need to add functionality to get room code from form value and shoot it as a param in the redirect
     }
 
     function createRoom(e) {
         e.preventDefault();
-        navigate(`/room/${roomId}`);
         socket.emit("new-room", `${roomId}`);
         socket.on("new-msg", (text) => {
             console.log(text);
+            navigate(`/room/${roomId}`);
         });
         // redirect over to room page since no param, there will need to be a way to check a null param and create a room code from there.
     }
