@@ -1,4 +1,4 @@
-const URL_PREFIX = "https://localhost:3001";
+const URL_PREFIX = "http://localhost:3001";
 
 const API = {
     getAllScores: () => {
@@ -14,7 +14,17 @@ const API = {
         return fetch(`${URL_PREFIX}/api/users/signup`);
     },
     addScore: (userObj) => {
-        return fetch;
+        return fetch(`${URL_PREFIX}/api/scores/`);
+    },
+    retrieveLeaderboard: () => {
+        return fetch(`${URL_PREFIX}/api/scores/`);
+    },
+    isValidToken: (token) => {
+        return fetch(`${URL_PREFIX}/api/users/isValidToken`, {
+            headers: {
+                authorization: `Bearer ${token}`,
+            },
+        }).then((res) => res.json());
     },
 };
 
