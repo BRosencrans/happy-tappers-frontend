@@ -1,24 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RoomButtons from "../RoomButtons";
 import HighScore from "../HighScore";
 import LogoutButton from "../LogoutButton";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Leaderboard from "../Leaderboard";
-import "../css/Dashboard.css"
+import "../css/Dashboard.css";
 
-export default function Dashboard() {
+export default function Dashboard(props) {
+    const [username, setUsername] = useState("");
+    const [userId, setUserId] = useState("");
+
+    useEffect(() => {
+        const savedUsername = localStorage.getItem("username");
+        const savedUserId = localStorage.getItem("id");
+        if (savedUsername) {
+            setUsername(savedUsername);
+        }
+        if (savedUserId) {
+            setUserId(savedUserId);
+        }
+    }, []);
 
     return (
         <Container fluid>
             <Row className="mb-5">
                 <Col>
-                    <NavLink to="/profile/:userId">
+                    <NavLink to={`/profile/${userId}`}>
                         {/* TODO: change to userId */}
                         <Button variant="primary" size="lg" id="btn">
                             Profile
                         </Button>
                     </NavLink>
+                </Col>
+                <Col className="d-flex justify-content-center">
+                    <h2>Welcome, {username}!</h2>
                 </Col>
                 <Col className="d-flex justify-content-end">
                     <LogoutButton />
@@ -26,7 +42,7 @@ export default function Dashboard() {
             </Row>
             <Row>
                 <Col xs={12} md={2}>
-                    <RoomButtons/>
+                    <RoomButtons username={username} />
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
                     <HighScore />

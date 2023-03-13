@@ -1,11 +1,11 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Button, Form, Row, Col, Container } from "react-bootstrap/";
 import HomeButton from "../HomeButton";
 
-export default  function Login() {  
+export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-  
+
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -27,16 +27,17 @@ export default  function Login() {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                
+
                 if (data.token) {
                     alert("login successful");
                     window.localStorage.setItem("token", data.token);
-
+                    localStorage.setItem("username", data.user.username);
+                    localStorage.setItem("id", data.user._id);
                     window.location.href = "./dashboard";
                 }
             });
     }
-    
+
     return (
         <Container fluid>
             <Row>
@@ -52,10 +53,12 @@ export default  function Login() {
                             <label htmlFor="floatingInputCustom">Username</label>
                         </Form.Floating>
                         <Form.Floating className="mb-3">
-                            <Form.Control id="floatingPasswordCustom" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                            <label id="pw" htmlFor="floatingPasswordCustom">Password</label>
+                            <Form.Control id="floatingPasswordCustom" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <label id="pw" htmlFor="floatingPasswordCustom">
+                                Password
+                            </label>
                         </Form.Floating>
-                        <Button id="btn"variant="primary" type="submit" size="lg" style={{ width: "100%" }}>
+                        <Button id="btn" variant="primary" type="submit" size="lg" style={{ width: "100%" }}>
                             Login
                         </Button>
                     </Form>
@@ -63,5 +66,4 @@ export default  function Login() {
             </Row>
         </Container>
     );
-    }
-
+}

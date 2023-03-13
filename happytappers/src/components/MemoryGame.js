@@ -1,23 +1,24 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import CardTile from "./CardTile";
 import { Button } from "react-bootstrap";
 import { SocketContext } from "../utils/SocketHelper";
+import { useParams } from "react-router-dom";
 
-const cardImages = [
-    { src: "/cards/budgie.png", matched: false },
-    { src: "/cards/crane.png", matched: false },
-    { src: "/cards/dodo.png", matched: false },
-    { src: "/cards/duck.png", matched: false },
-    { src: "/cards/flamingo.png", matched: false },
-    { src: "/cards/parrot.png", matched: false },
-    { src: "/cards//penguin.png", matched: false },
-    { src: "/cards/toucan.png", matched: false },
-];
-// ^ array to track what type of bird generated needed in socket logic. In front end use swith case to plug in image.
+// const cardImages = [
+//     { src: "/cards/budgie.png", matched: false },
+//     { src: "/cards/crane.png", matched: false },
+//     { src: "/cards/dodo.png", matched: false },
+//     { src: "/cards/duck.png", matched: false },
+//     { src: "/cards/flamingo.png", matched: false },
+//     { src: "/cards/parrot.png", matched: false },
+//     { src: "/cards//penguin.png", matched: false },
+//     { src: "/cards/toucan.png", matched: false },
+// ];
+// ^ array to track what type of bird generated needed in socket logic. source should be put in just fine.
 
-export default function MemoryGame() {
+export default function MemoryGame(props) {
     const socket = useContext(SocketContext);
-
+    const { roomId } = useParams();
     const [cards, setCards] = useState([]);
     const [turns, setTurns] = useState(0);
     const [choiceOne, setChoiceOne] = useState(null);
@@ -26,7 +27,7 @@ export default function MemoryGame() {
 
     // shuffles the cards - backend
     const shuffleCards = () => {
-        socket.emit("shuffleCards");
+        socket.emit("shuffleCards", { roomId, game: "memoryGame" });
         // const shuffledCards = [...cardImages, ...cardImages].sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random() }));
 
         // setChoiceOne(null);
@@ -42,26 +43,26 @@ export default function MemoryGame() {
     };
 
     // compares 2 selected cards - backend
-    useEffect(() => {
-        if (choiceOne && choiceTwo) {
-            setDisabled(true);
+    // useEffect(() => {
+    //     if (choiceOne && choiceTwo) {
+    //         setDisabled(true);
 
-            if (choiceOne.src === choiceTwo.src) {
-                setCards((prevCards) => {
-                    return prevCards.map((card) => {
-                        if (card.src === choiceOne.src) {
-                            return { ...card, matched: true };
-                        } else {
-                            return card;
-                        }
-                    });
-                });
-                resetTurn();
-            } else {
-                setTimeout(() => resetTurn(), 1000);
-            }
-        }
-    }, [choiceOne, choiceTwo]);
+    //         if (choiceOne.src === choiceTwo.src) {
+    //             setCards((prevCards) => {
+    //                 return prevCards.map((card) => {
+    //                     if (card.src === choiceOne.src) {
+    //                         return { ...card, matched: true };
+    //                     } else {
+    //                         return card;
+    //                     }
+    //                 });
+    //             });
+    //             resetTurn();
+    //         } else {
+    //             setTimeout(() => resetTurn(), 1000);
+    //         }
+    //     }
+    // }, [choiceOne, choiceTwo]);
 
     // resets card position and starts new turn
     const resetTurn = () => {
@@ -72,7 +73,7 @@ export default function MemoryGame() {
 
     return (
         <div className="board">
-            <Button onClick={shuffleCards}>New Game</Button>
+            <Button onClick={shuffleCards}>Start Game</Button>
 
             <div className="card-grid">
                 {cards.map((card) => (
