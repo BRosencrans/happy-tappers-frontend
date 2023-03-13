@@ -7,35 +7,35 @@ export default  function Login() {
     const [password, setPassword] = useState("");
   
     function handleSubmit(e) {
-      e.preventDefault();
-  
-      console.log(username);
-      fetch("http://localhost:3001/api/users/login", {
-        method: "POST",
-        crossDomain: true,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:3001/api/users"
-        },
+        e.preventDefault();
 
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, "logged in");
-          if (data.username) {
-            alert("login successful");
-            window.localStorage.setItem("token", data);
-           
-  
-            window.location.href = "./dashboard";
-          }
-        });
-	}
+        console.log(username);
+        fetch("http://localhost:3001/api/users/login", {
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "http://localhost:3001/api/users",
+            },
+
+            body: JSON.stringify({
+                username,
+                password,
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                
+                if (data.token) {
+                    alert("login successful");
+                    window.localStorage.setItem("token", data.token);
+
+                    window.location.href = "./dashboard";
+                }
+            });
+    }
     
     return (
         <Container fluid>
