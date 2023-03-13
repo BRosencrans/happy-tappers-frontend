@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SocketContext, socket } from "./utils/SocketHelper.js";
@@ -12,11 +12,35 @@ import Profile from "./components/pages/Profile";
 import Dashboard from "./components/pages/Dashboard";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+// import API from "./utils/API";
 
 function App() {
+    // const [token, setToken] = useState("");
+    // const [username, setUsername] = useState("");
+    // const [userId, setUserId] = useState("");
+    // const [isLoggedIn, setIsLoggedIn] = useState("false");
+
     socket.on("connect", () => {
         console.log(`I'm connected with the back-end and this is your socket.id ${socket.id}`);
     });
+
+    // useEffect(() => {
+    //     const savedToken = localStorage.getItem("token");
+    //     console.log(savedToken);
+    //     if (savedToken) {
+    //         API.isValidToken(savedToken).then((tokenData) => {
+    //             if (tokenData.isValid) {
+    //                 setToken(savedToken);
+    //                 setUserId(tokenData.user.id);
+    //                 setUsername(tokenData.username);
+    //                 setIsLoggedIn(true);
+    //             } else {
+    //                 localStorage.removeItem("token");
+    //             }
+    //         });
+    //     }
+    // }, []);
+
     return (
         <SocketContext.Provider value={socket}>
             <BrowserRouter>
