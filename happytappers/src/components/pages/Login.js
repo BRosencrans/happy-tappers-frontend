@@ -10,7 +10,7 @@ export default function Login() {
         e.preventDefault();
 
         console.log(username);
-        fetch("hhttps://happytappersbackend.herokuapp.com/api/users/login", {
+        fetch("https://happytappersbackend.herokuapp.com/api/users/login", {
             method: "POST",
             crossDomain: true,
             headers: {
