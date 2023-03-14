@@ -1,4 +1,4 @@
-const URL_PREFIX = "http://localhost:3001";
+const URL_PREFIX = "http://localhost:3001"; //TODO: replace link with deployed link
 
 const API = {
     getAllScores: () => {
