@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import Tile from "../Tile";
 import "../css/Room.css";
-import { useParams, NavLink, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 import Timer from "../Timer";
