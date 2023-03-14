@@ -10,13 +10,13 @@ export default function Login() {
         e.preventDefault();
 
         console.log(username);
-        fetch("http://localhost:3001/api/users/login", {
+        fetch("hhttps://happytappersbackend.herokuapp.com/api/users/login", {
             method: "POST",
             crossDomain: true,
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
-                "Access-Control-Allow-Origin": "http://localhost:3001/api/users",
+                "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com/",
             },
 
             body: JSON.stringify({
