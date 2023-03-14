@@ -8,15 +8,20 @@ import LogoutButton from "../LogoutButton";
 import { Carousel } from "react-bootstrap";
 
 export default function Profile() {
+    const savedUsername = localStorage.getItem("username");
+    const savedUserId = localStorage.getItem("id");
     return (
         <Container fluid>
             <Row className="mb-5">
                 <Col>
                     <NavLink to="/dashboard" exact="true">
-                        <Button id="btn"variant="primary" size="lg">
+                        <Button id="btn" variant="primary" size="lg">
                             Back
                         </Button>
                     </NavLink>
+                </Col>
+                <Col className="d-flex justify-content-center">
+                    <h2>{savedUsername}</h2>
                 </Col>
                 <Col className="d-flex justify-content-end">
                     <LogoutButton />
