@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import Leaderboard from "../Leaderboard";
 import "../css/Dashboard.css";
 
-export default function Dashboard(props) {
+export default function Dashboard() {
     const [username, setUsername] = useState("");
     const [userId, setUserId] = useState("");
 
@@ -42,7 +42,7 @@ export default function Dashboard(props) {
             </Row>
             <Row>
                 <Col xs={12} md={2}>
-                    <RoomButtons username={username} />
+                    <RoomButtons username={username} userId={userId} />
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
                     <HighScore />
