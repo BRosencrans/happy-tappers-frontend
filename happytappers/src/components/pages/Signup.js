@@ -22,7 +22,7 @@ fetch("https://happytappersbackend.herokuapp.com/api/users/signup", {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com/"
+      "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com"
     },
     body:JSON.stringify({
         username,

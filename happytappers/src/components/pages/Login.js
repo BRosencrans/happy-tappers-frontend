@@ -16,7 +16,7 @@ export default function Login() {
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
-                "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com/",
+                "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com",
             },
 
             body: JSON.stringify({
