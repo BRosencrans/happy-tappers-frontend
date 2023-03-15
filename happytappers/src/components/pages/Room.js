@@ -8,7 +8,7 @@ import MemoryGame from "../MemoryGame";
 import Player from "../Player";
 import { SocketContext } from "../../utils/SocketHelper";
 import Chat from "../Chat";
-
+import Messages from "../Messages"
 export default function Room() {
     const socket = useContext(SocketContext);
     const navigate = useNavigate();
@@ -70,7 +70,8 @@ export default function Room() {
             </Row>
             <Row>
                 <Col sm={4}>
-                    <Chat />
+                    <Chat  socket={socket} username={username} roomId={roomId}/>
+                    <Messages socket={socket} username={username} roomId={roomId} />
                 </Col>
                 <Col>
                     <MemoryGame username={username} userId={userId} />
