@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import MemoryGame from "./components/pages/MemoryGame";
+import MemoryGame from "./components/MemoryGame";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SocketContext, socket } from "./utils/SocketHelper.js";
 import Home from "./components/pages/Home";
