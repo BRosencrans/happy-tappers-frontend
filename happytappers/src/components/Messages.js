@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { SocketContext } from "../utils/SocketHelper"
+import {  Button } from "react-bootstrap";
+
 
 const Messages = ({  username, roomId }) => {
     const socket = useContext(SocketContext)
@@ -20,9 +22,9 @@ const Messages = ({  username, roomId }) => {
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />
-      <button id="btn" type="submit"  onClick={newMessage}>
+      <Button id="btn" type="submit"  onClick={newMessage}>
        Press to send
-      </button>
+      </Button>
     </div>
   );
 };
