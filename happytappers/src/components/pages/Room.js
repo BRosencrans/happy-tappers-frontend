@@ -36,7 +36,7 @@ export default function Room() {
         return () => {
             socket.off("returned-room-data");
         };
-    }, [socket, roomId, users]);
+    }, [socket, roomId, users, pageLoad]);
 
     // useEffect(() => {}, [users]);
 
