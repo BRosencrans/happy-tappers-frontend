@@ -35,6 +35,7 @@ export default function Login() {
                     localStorage.setItem("id", data.user._id);
                     window.location.href = "./dashboard";
                 }
+                
             });
     }
 
