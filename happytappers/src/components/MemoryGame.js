@@ -137,6 +137,7 @@ export default function MemoryGame(props) {
     return (
         <div className="board">
             <Button
+                id="btn"
                 onClick={() => {
                     shuffleCards();
                 }}

@@ -50,7 +50,7 @@ export default function Room() {
         <Container fluid>
             <Row>
                 <Col className="d-flex justify-content-left">
-                    <Button onClick={leaveRoom}>Exit</Button>
+                    <Button id='btn' onClick={leaveRoom}>Exit</Button>
                 </Col>
                 <Col className="d-flex justify-content-center">
                     <h2>Room code: {roomId}</h2>
