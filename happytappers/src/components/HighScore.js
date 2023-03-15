@@ -1,11 +1,44 @@
-import React from "react";
-import { Card } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Card, Table } from "react-bootstrap";
 
-export default function HighScore(props) {
+export default function HighScore() {
+    const [yourScores, setYourScores] = useState([]);
+    const userId = localStorage.getItem("id");
+
+    useEffect(() => {
+        fetch(`http://localhost:3001/api/users/${userId}`, {
+            method: "GET",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "http://localhost:3001/api/scores",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setYourScores(data.scores);
+            });
+    }, []);
+
     return (
-        <Card className="p-4"id="highscore">
-            <h3 className="text-center">High Score</h3>
-            <ul>{props.score}</ul>
+        <Card className="p-4" id="highscore">
+            <h3 className="text-center">{yourScores[0].user}'s Scores</h3>
+            <Table>
+                <thead>
+                    <th>Date</th>
+                    <th>Score</th>
+                </thead>
+                <tbody>
+                    {yourScores.map((score, index) => (
+                        <tr key={index}>
+                            <td>{score.date}</td>
+                            <td>{score.score}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
         </Card>
     );
 }
