@@ -16,13 +16,13 @@ export default class Signup extends Component {
         const{username, password} = this.state;
         console.log(username)
         
-fetch("http://localhost:3001/api/users/signup", {
+fetch("https://happytappersbackend.herokuapp.com/api/users/signup", {
     method: "POST",
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "Access-Control-Allow-Origin": "http://localhost:3001/"
+      "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com"
     },
     body:JSON.stringify({
         username,
