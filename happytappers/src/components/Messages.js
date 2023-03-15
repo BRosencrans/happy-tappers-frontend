@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { SocketContext } from "../utils/SocketHelper"
 
-const Messages = ({ socket, username, roomid }) => {
-  const [message, setMessage] = useState('');
-
-  const sendMessage = () => {
-    if (message !== '') {
-     
-      socket.emit('send_message', { username, roomid, message});
-      setMessage('');
-    }
-  };
-
+const Messages = ({  username, roomId }) => {
+    const socket = useContext(SocketContext)
+    const [message, setMessage] = useState('');
+  
+    const newMessage = () => {
+      if (message !== '') {
+    
+        socket.emit('send-message', { username, roomId, message });
+        setMessage('');
+      }
+    };
+  
   return (
     <div>
       <input
@@ -18,7 +20,7 @@ const Messages = ({ socket, username, roomid }) => {
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />
-      <button id="btn" type="submit"  onClick={sendMessage}>
+      <button id="btn" type="submit"  onClick={newMessage}>
        Press to send
       </button>
     </div>

@@ -10,7 +10,7 @@ export default function Chat() {
 
     useEffect(() => {
        
-        socket.on('receive_message', (data) => {
+        socket.on('receive-message', (data) => {
             console.log(data);
             setMessagesReceived((messages) => [
                 ...messages,
