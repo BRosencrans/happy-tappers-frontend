@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button, ListGroup, ListGroupItem, Form } from "react-bootstrap";
 import { SocketContext } from "../utils/SocketHelper";
-
+import Messages from "./Messages"
 export default function Chat() {
    
     const socket = useContext(SocketContext);
@@ -35,10 +35,7 @@ export default function Chat() {
                     <br />
                 </ListGroupItem>
             ))}
-            <Form >
-         <label htmlFor="floatingInputCustom">Your message here</label>
-         <Form.Control  placeholder="" />
-                 </Form>
+          <Messages />
         </ListGroup>
     );
 }
