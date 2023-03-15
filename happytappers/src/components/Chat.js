@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button, ListGroup, ListGroupItem, Form } from "react-bootstrap";
+import './css/Chat.css'
 import { SocketContext } from "../utils/SocketHelper";
-import Messages from "./Messages"
+
 export default function Chat() {
    
     const socket = useContext(SocketContext);
     const [messagesReceived, setMessagesReceived] = useState([]);
-
+    const messagesColumnRef = useRef(null);
     useEffect(() => {
        
         socket.on('receive-message', (data) => {
@@ -22,10 +23,15 @@ export default function Chat() {
         });
 
         return () => socket.off("receive-message");
-    }, [socket, messagesReceived]);
-
+        
+    }, [messagesReceived, socket]);
+    useEffect(() => {
+        messagesColumnRef.current.scrollTop =
+          messagesColumnRef.current.scrollHeight;
+      }, [messagesReceived]);
     return (
-        <ListGroup>
+        
+        <ListGroup className="messagesColumn "ref={messagesColumnRef}>
             {messagesReceived.map((msg, index) => (
                 <ListGroupItem key={index}>
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -35,7 +41,7 @@ export default function Chat() {
                     <br />
                 </ListGroupItem>
             ))}
-          <Messages />
         </ListGroup>
+        
     );
 }
