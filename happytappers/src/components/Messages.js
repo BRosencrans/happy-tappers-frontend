@@ -16,15 +16,17 @@ const Messages = ({  username, roomId }) => {
     };
   
   return (
-    <div>
-      <input
-        placeholder='Type your message here'
-        onChange={(e) => setMessage(e.target.value)}
-        value={message}
-      />
-      <Button id="btn" type="submit"  onClick={newMessage}>
-       Press to send
-      </Button>
+    <div className='card-footer text-muted d-flex justify-content-start align-items-center p-3'>
+      <div className='input-group mb-0'>
+        <input className='form-control'
+          placeholder='Type your message here'
+          onChange={(e) => setMessage(e.target.value)}
+          value={message}
+        />
+        <Button id="btn" type="submit"  onClick={newMessage}>
+        Press to send
+        </Button>
+      </div>
     </div>
   );
 };
