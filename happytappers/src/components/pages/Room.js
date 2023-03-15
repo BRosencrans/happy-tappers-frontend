@@ -1,50 +1,44 @@
 import React, { useEffect, useState, useContext } from "react";
-import Tile from "../Tile";
+// import Tile from "../Tile";
 import "../css/Room.css";
-import { useParams, NavLink, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import MemoryGame from "../MemoryGame";
+import MemoryGame from "./MemoryGame";
 import Timer from "../Timer";
 import Player from "../Player";
 import { SocketContext } from "../../utils/SocketHelper";
+import Chat from "../Chat";
 
 export default function Room() {
     const socket = useContext(SocketContext);
     const navigate = useNavigate();
     const { roomId } = useParams();
-    const [username, setUsername] = useState("");
-    const [userId, setUserId] = useState("");
-    const [users, setUsers] = useState([]);
+    const username = useState(localStorage.getItem("username"));
+    const userId = useState(localStorage.getItem("id"));
     const [room, setRoom] = useState({});
-
-    console.log(`Room loaded: ${roomId}`);
+    const [users, setUsers] = useState([]);
+    const [pageLoad, setPageLoad] = useState(false);
 
     useEffect(() => {
-        const savedUsername = localStorage.getItem("username");
-        const savedUserId = localStorage.getItem("id");
-        if (savedUsername) {
-            setUsername(savedUsername);
+        if (pageLoad == false) {
+            socket.emit("request-room-data", roomId);
+            setPageLoad(true);
         }
-        if (savedUserId) {
-            setUserId(savedUserId);
-        }
-
-        socket.emit("request-room-data", roomId);
         socket.on("returned-room-data", (data) => {
-            console.log(room);
             setRoom(data.room);
-            setUsers(data.roomUsers);
+            setUsers(data.room.users);
         });
 
         socket.on("user-num-changed", (roomUsers) => {
             setUsers(roomUsers);
         });
-    }, []);
 
-    useEffect(() => {
-        // socket.on("add-user", username);
-    }, [roomId]);
-    console.log(roomId);
+        return () => {
+            socket.off("returned-room-data");
+        };
+    }, [socket, roomId, users, pageLoad]);
+
+    // useEffect(() => {}, [users]);
 
     function leaveRoom(e) {
         e.preventDefault();
@@ -66,13 +60,20 @@ export default function Room() {
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    {users.map((user, index) => (
-                        <Player key={"player" + index} name={user.username} score={user.score} />
-                    ))}
-                </Col>
+                {users != null && users.length > 0 ? (
+                    users.map((user, index) => (
+                        <Col>
+                            <Player key={index} name={user.username} score={user.score} />
+                        </Col>
+                    ))
+                ) : (
+                    <h3>Loading users....</h3>
+                )}
             </Row>
             <Row>
+                <Col sm={4}>
+                    <Chat />
+                </Col>
                 <Col>
                     <MemoryGame users={users} />
                 </Col>
