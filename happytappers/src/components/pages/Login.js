@@ -34,6 +34,8 @@ export default function Login() {
                     localStorage.setItem("username", data.user.username);
                     localStorage.setItem("id", data.user._id);
                     window.location.href = "./dashboard";
+                } else {
+                    alert("username or password is incorrect")
                 }
             });
     }
