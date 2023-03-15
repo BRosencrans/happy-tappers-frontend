@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import MemoryGame from "./components/MemoryGame";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SocketContext, socket } from "./utils/SocketHelper.js";
 import Home from "./components/pages/Home";
@@ -47,6 +48,7 @@ function App() {
                 <Routes>
                     {/* Routes for pages initiated. Needed room page to see how the tiles should look and to work on game logic. */}
                     <Route path="/" element={<Home />} />
+                    <Route path="/memorygame" element={<MemoryGame />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/room/" element={<LoadingRoom />} />
                     <Route path="/room/:roomId" element={<Room />} />

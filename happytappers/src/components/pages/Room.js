@@ -3,12 +3,12 @@ import React, { useEffect, useState, useContext } from "react";
 import "../css/Room.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import MemoryGame from "../MemoryGame";
 
-import Timer from "../Timer";
 import Player from "../Player";
 import { SocketContext } from "../../utils/SocketHelper";
 import Chat from "../Chat";
-
+import Messages from "../Messages"
 export default function Room() {
     const socket = useContext(SocketContext);
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Room() {
     const [pageLoad, setPageLoad] = useState(false);
 
     useEffect(() => {
-        if (pageLoad == false) {
+        if (pageLoad === false) {
             socket.emit("request-room-data", roomId);
             setPageLoad(true);
         }
@@ -49,21 +49,19 @@ export default function Room() {
     return (
         <Container fluid>
             <Row>
-                <Col className="d-flex justify-content-center">
+                <Col className="d-flex justify-content-left">
                     <Button onClick={leaveRoom}>Exit</Button>
                 </Col>
                 <Col className="d-flex justify-content-center">
                     <h2>Room code: {roomId}</h2>
                 </Col>
-                <Col className="d-flex justify-content-center">
-                    <Timer />
-                </Col>
+                <Col></Col>
             </Row>
             <Row>
                 {users != null && users.length > 0 ? (
                     users.map((user, index) => (
-                        <Col>
-                            <Player key={index} name={user.username} score={user.score} />
+                        <Col className="d-flex justify-content-center">
+                            <Player key={index} name={user.username} />
                         </Col>
                     ))
                 ) : (
@@ -72,10 +70,11 @@ export default function Room() {
             </Row>
             <Row>
                 <Col sm={4}>
-                    <Chat />
+                    <Chat  socket={socket} username={username} roomId={roomId}/>
+                    <Messages socket={socket} username={username} roomId={roomId} />
                 </Col>
                 <Col>
-                   
+                    <MemoryGame username={username} userId={userId} />
                 </Col>
             </Row>
         </Container>
