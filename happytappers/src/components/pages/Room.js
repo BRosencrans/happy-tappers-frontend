@@ -20,7 +20,7 @@ export default function Room() {
     const [pageLoad, setPageLoad] = useState(false);
 
     useEffect(() => {
-        if (pageLoad == false) {
+        if (pageLoad === false) {
             socket.emit("request-room-data", roomId);
             setPageLoad(true);
         }

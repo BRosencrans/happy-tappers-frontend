@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useContext, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import CardTile from "./CardTile";
 import { Button, Col } from "react-bootstrap";
-
-import { useParams } from "react-router-dom";
 
 const cardImages = [
     { src: "/cards/budgie.png", matched: false },
@@ -17,7 +15,6 @@ const cardImages = [
 // ^ array to track what type of bird generated needed in socket logic. source should be put in just fine.
 
 export default function MemoryGame(props) {
-    const { roomId } = useParams();
     const [cards, setCards] = useState([]);
     const [moves, setMoves] = useState(0);
     const [choiceOne, setChoiceOne] = useState(null);
@@ -25,7 +22,6 @@ export default function MemoryGame(props) {
     const [disabled, setDisabled] = useState(false);
     const [matches, setMatches] = useState(0);
     const [playing, setPlaying] = useState(false);
-    const [endOfGame, setEndOfGame] = useState(false);
     const [score, setScore] = useState(0);
     const [counter, setCounter] = React.useState(60);
     const [showFinalScore, setShowFinalScore] = useState(false);
@@ -40,7 +36,6 @@ export default function MemoryGame(props) {
         setChoiceTwo(null);
         setCards(shuffledCards);
         setMoves(0);
-        setEndOfGame(false);
         setScore(0);
         setCounter(60);
         setMatches(0);
@@ -80,7 +75,7 @@ export default function MemoryGame(props) {
         if (matches == 8 || counter == 0) {
             console.log(matches);
             console.log(counter);
-            setEndOfGame(true);
+
             setPlaying(false);
             if (score < 0) {
                 setScore(0);
