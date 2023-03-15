@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Button, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Container, Row, Col, Button, ListGroup, ListGroupItem, Form } from "react-bootstrap";
 import { SocketContext } from "../utils/SocketHelper";
 
 export default function Chat() {
+   
     const socket = useContext(SocketContext);
-    const [messagesRecieved, setMessagesReceived] = useState([]);
+    const [messagesReceived, setMessagesReceived] = useState([]);
 
     useEffect(() => {
-        socket.on("receive-mesage", (data) => {
+       
+        socket.on('receive_message', (data) => {
             console.log(data);
             setMessagesReceived((messages) => [
                 ...messages,
@@ -20,11 +22,11 @@ export default function Chat() {
         });
 
         return () => socket.off("receive-message");
-    }, [socket, messagesRecieved]);
+    }, [socket, messagesReceived]);
 
     return (
         <ListGroup>
-            {messagesRecieved.map((msg, index) => (
+            {messagesReceived.map((msg, index) => (
                 <ListGroupItem key={index}>
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
                         <span>{msg.username}</span>
@@ -33,6 +35,10 @@ export default function Chat() {
                     <br />
                 </ListGroupItem>
             ))}
+            <Form >
+         <label htmlFor="floatingInputCustom">Your message here</label>
+         <Form.Control  placeholder="" />
+                 </Form>
         </ListGroup>
     );
 }
