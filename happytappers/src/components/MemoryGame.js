@@ -41,6 +41,7 @@ export default function MemoryGame(props) {
         setMatches(0);
         setShowFinalScore(false);
         setPlaying(true);
+        setSendFetchOnce(true);
     };
 
     // handle card choice
@@ -59,7 +60,7 @@ export default function MemoryGame(props) {
                     return prevCards.map((card) => {
                         if (card.src === choiceOne.src) {
                             setMatches(matches + 1);
-                            setScore(matches * 10 - moves * 2);
+                            setScore(matches * 10 - moves);
                             return { ...card, matched: true };
                         } else {
                             return card;
@@ -72,7 +73,7 @@ export default function MemoryGame(props) {
             }
         }
 
-        if (matches == 8 || counter == 0) {
+        if (matches === 8 || counter === 0) {
             console.log(matches);
             console.log(counter);
 
