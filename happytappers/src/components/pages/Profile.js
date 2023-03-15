@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Button, Row, Col } from "react-bootstrap";
-//import { Avatar } from "primereact/avatar";
+//import ProgressBar from "react-bootstrap/ProgressBar";
 import RoomButtons from "../RoomButtons";
 import HighScore from "../HighScore";
 import LogoutButton from "../LogoutButton";
-import { Carousel } from "react-bootstrap";
+import Cookie from "../Cookie";
+import ControlledCarousel from "../Carousel"
 
 export default function Profile() {
     const [username, setUsername] = useState("");
