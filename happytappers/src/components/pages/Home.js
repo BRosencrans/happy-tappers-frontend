@@ -11,7 +11,7 @@ export default function Home() {
                 <Col className="text-center">
                     <div className="mb-2">
                         <NavLink to="/login" exact="true">
-                            <Button variant="primary" className="bts" size="lg" style={{ width: "70%" }}>
+                            <Button id="btn" className="bts" size="lg" style={{ width: "70%" }}>
                                 Login
                             </Button>
                         </NavLink>
@@ -20,7 +20,7 @@ export default function Home() {
                 <Col className="text-center">
                     <div className="mb-2">
                         <NavLink to="/signup" exact="true">
-                            <Button variant="primary" className="bts" size="lg" style={{ width: "70%" }}>
+                            <Button id="btn" className="bts" size="lg" style={{ width: "70%" }}>
                                 Signup
                             </Button>
                         </NavLink>
