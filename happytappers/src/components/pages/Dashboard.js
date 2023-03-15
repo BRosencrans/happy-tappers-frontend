@@ -20,7 +20,7 @@ export default function Dashboard() {
         if (savedUserId) {
             setUserId(savedUserId);
         }
-    }, []);
+    }, [username, userId]);
 
     return (
         <Container fluid>
