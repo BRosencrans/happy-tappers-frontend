@@ -1,11 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Button, Row, Col } from "react-bootstrap";
-//import { Avatar } from "primereact/avatar";
+//import ProgressBar from "react-bootstrap/ProgressBar";
 import RoomButtons from "../RoomButtons";
 import HighScore from "../HighScore";
 import LogoutButton from "../LogoutButton";
-import { Carousel } from "react-bootstrap";
+import Cookie from "../Cookie";
+import ControlledCarousel from "../Carousel"
 
 export default function Profile() {
     return (
@@ -30,20 +31,8 @@ export default function Profile() {
                     <HighScore />
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
-                    <Carousel>
-                        <Carousel.Item>
-                            <img id="penguin" alt="penguin" src={require("../../images/bird1.png")} style={{ width: 250, height: 250 }}></img>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img id="penguin" alt="parrot" src={require("../../images/bird2.png")} style={{ width: 250, height: 250 }}></img>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img id="penguin" alt="chick" src={require("../../images/bird3.png")} style={{ width: 250, height: 250 }}></img>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img id="penguin" alt="parrot 2" src={require("../../images/bird4.png")} style={{ width: 250, height: 250 }}></img>
-                        </Carousel.Item>
-                    </Carousel>
+                    <ControlledCarousel/>
+                   <Cookie />
                 </Col>
             </Row>
         </Container>
