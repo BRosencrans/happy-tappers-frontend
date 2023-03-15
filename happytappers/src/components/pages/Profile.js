@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Button, Row, Col } from "react-bootstrap";
 //import { Avatar } from "primereact/avatar";
@@ -8,8 +8,20 @@ import LogoutButton from "../LogoutButton";
 import { Carousel } from "react-bootstrap";
 
 export default function Profile() {
-    const savedUsername = localStorage.getItem("username");
-    const savedUserId = localStorage.getItem("id");
+    const [username, setUsername] = useState("");
+    const [userId, setUserId] = useState("");
+
+    useEffect(() => {
+        const savedUsername = localStorage.getItem("username");
+        const savedUserId = localStorage.getItem("id");
+        if (savedUsername) {
+            setUsername(savedUsername);
+        }
+        if (savedUserId) {
+            setUserId(savedUserId);
+        }
+    }, [username, userId]);
+
     return (
         <Container fluid>
             <Row className="mb-5">
@@ -21,7 +33,7 @@ export default function Profile() {
                     </NavLink>
                 </Col>
                 <Col className="d-flex justify-content-center">
-                    <h2>{savedUsername}</h2>
+                    <h2>{username}</h2>
                 </Col>
                 <Col className="d-flex justify-content-end">
                     <LogoutButton />
@@ -29,13 +41,13 @@ export default function Profile() {
             </Row>
             <Row>
                 <Col xs={12} md={2}>
-                    <RoomButtons />
+                    <RoomButtons username={username} userId={userId} />
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
                     <HighScore />
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
-                    <Carousel>
+                    <Carousel slide="false">
                         <Carousel.Item>
                             <img id="penguin" alt="penguin" src={require("../../images/bird1.png")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>
