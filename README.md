@@ -19,6 +19,31 @@ Head on over to the deployed link and create an account after that just sign in 
 ## Memory Game instructions 
 To play our memory matching game simply join or create a chatting room and hit the `start game` button 8 pairs of randomly sorted cards will appear on the screen along with a 60 second timer. The timer(and the game) starts after you flip over the first card and the game ends if you get all the matches or time the expires. Points are then awarded based on how well you did. A word of advice make sure you wait for the cards to flip back over before clicking another card, Happy Tapping!
 
+## Screenshots
+Homepage
+![homepage](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/Homepage.png)
+Dashboard
+![dashboard](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/dashboard.png)
+Signup
+![signup](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/signup.png)
+Login
+![login](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/login.png)
+Profile
+![profile](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/profile.png)
+Room with chat
+![room with chat](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/room%20with%20chat.png)
+Game screen
+![game screen](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/game%20screen.png)
+Game over screen
+![game over screen](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/screenshots/game%20over%20screen.png)
+
+##Demos
+
+Chat demo
+![chat demo](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/demos/chat-demo.gif)
+Game demo
+![game demo](https://raw.githubusercontent.com/BRosencrans/happy-tappers-frontend/dev/Screenshots-and-Demos/demos/card%20game.gif)
+
 ## Contributors 
 [Febin](https://github.com/fgeorge206)
 
