@@ -50,7 +50,6 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/memorygame" element={<MemoryGame />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/room/" element={<LoadingRoom />} />
                     <Route path="/room/:roomId" element={<Room />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />

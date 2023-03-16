@@ -10,13 +10,15 @@ export default function Login() {
         e.preventDefault();
 
         console.log(username);
-        fetch("https://happytappersbackend.herokuapp.com/api/users/login", {
+        // fetch("https://happytappersbackend.herokuapp.com/api/users/login", {
+        fetch("http://localhost:3001/api/users/login", {
             method: "POST",
             crossDomain: true,
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
-                "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com",
+                // "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com",
+                "Access-Control-Allow-Origin": "http://localhost:3001/",
             },
 
             body: JSON.stringify({
@@ -35,9 +37,8 @@ export default function Login() {
                     localStorage.setItem("id", data.user._id);
                     window.location.href = "./dashboard";
                 } else {
-                    alert("username or password is incorrect")
+                    alert("username or password is incorrect");
                 }
-                
             });
     }
 

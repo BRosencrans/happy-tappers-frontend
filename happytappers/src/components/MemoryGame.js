@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardTile from "./CardTile";
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 
 const cardImages = [
     { src: "/cards/budgie.png", matched: false },
@@ -40,7 +40,7 @@ export default function MemoryGame(props) {
         setCounter(60);
         setMatches(0);
         setShowFinalScore(false);
-        setPlaying(true);
+        setPlaying(!playing);
         setSendFetchOnce(true);
     };
 
@@ -136,31 +136,37 @@ export default function MemoryGame(props) {
 
     return (
         <div className="board">
-            <Button
-                id="btn"
-                onClick={() => {
-                    shuffleCards();
-                }}
-            >
-                {playing ? "End Game" : "Start Game"}
-            </Button>
+            <Row xs={3} sm={4} md={3} className="">
+                <Col>
+                    <Button
+                        id="btn"
+                        className="m-1"
+                        onClick={() => {
+                            shuffleCards();
+                        }}
+                    >
+                        {playing ? "End Game" : "Start Game"}
+                    </Button>
+                </Col>
+                {playing && (
+                    <div>
+                        <Col className="d-flex justify-content-center">Time left: {counter}</Col>
+                        <Col className="d-flex justify-content-center">Moves Made: {moves}</Col>
+                        <Col className="d-flex justify-content-center">Score: {score > 0 ? score : 0}</Col>
+                    </div>
+                )}
+            </Row>
             {finalScore}
             {playing && (
-                <div>
-                    <Col className="d-flex justify-content-center">Time left: {counter}</Col>
+                <Row>
                     <Col>
-                        <p>Moves Made: {moves}</p>
+                        <div className="card-grid">
+                            {cards.map((card) => (
+                                <CardTile key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} disabled={disabled} />
+                            ))}
+                        </div>
                     </Col>
-                    <Col>
-                        <p>Score: {score > 0 ? score : 0}</p>
-                    </Col>
-
-                    <div className="card-grid">
-                        {cards.map((card) => (
-                            <CardTile key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} disabled={disabled} />
-                        ))}
-                    </div>
-                </div>
+                </Row>
             )}
         </div>
     );
