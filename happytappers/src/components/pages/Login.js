@@ -10,15 +10,15 @@ export default function Login() {
         e.preventDefault();
 
         console.log(username);
-        // fetch("https://happytappersbackend.herokuapp.com/api/users/login", {
-        fetch("http://localhost:3001/api/users/login", {
+         fetch("https://happytappersbackend.herokuapp.com/api/users/login", {
+       // fetch("http://localhost:3001/api/users/login", {
             method: "POST",
             crossDomain: true,
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
-                // "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com",
-                "Access-Control-Allow-Origin": "http://localhost:3001/",
+                 "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com",
+                //"Access-Control-Allow-Origin": "http://localhost:3001/",
             },
 
             body: JSON.stringify({

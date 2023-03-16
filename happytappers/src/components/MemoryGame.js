@@ -101,13 +101,15 @@ export default function MemoryGame(props) {
     }, [choiceOne, choiceTwo, score, matches, disabled, counter, showFinalScore]);
 
     function sendScoreToDB(user, score) {
-        fetch("http://localhost:3001/api/scores", {
+        fetch("https://happytappersbackend.herokuapp.com/api/scores", {
+      // fetch("http://localhost:3001/api/scores", {
             method: "POST",
             crossDomain: true,
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
-                "Access-Control-Allow-Origin": "http://localhost:3001/api/scores",
+                "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com",
+                //"Access-Control-Allow-Origin": "http://localhost:3001/api/scores",
             },
             body: JSON.stringify({
                 userId: props.userId[0],

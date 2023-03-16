@@ -7,13 +7,15 @@ export default function HighScore() {
     const username = localStorage.getItem("username");
     console.log(userId);
     useEffect(() => {
-        fetch(`http://localhost:3001/api/users/${userId}`, {
+        fetch(`https://happytappersbackend.herokuapp.com/api/users/${userId}`, {
+      //  fetch(`http://localhost:3001/api/users/${userId}`, {
             method: "GET",
             crossDomain: true,
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
-                "Access-Control-Allow-Origin": "http://localhost:3001/",
+                "Access-Control-Allow-Origin": "https://happytappersbackend.herokuapp.com",
+               // "Access-Control-Allow-Origin": "http://localhost:3001/",
             },
         })
             .then((res) => res.json())
