@@ -47,7 +47,7 @@ export default function Profile() {
                     <HighScore />
                 </Col>
                 <Col className="text-center" xs={6} md={5}>
-                    <Carousel slide="false">
+                    <Carousel interval={null}>
                         <Carousel.Item>
                             <img id="penguin" alt="penguin" src={require("../../images/bird1.png")} style={{ width: 250, height: 250 }}></img>
                         </Carousel.Item>

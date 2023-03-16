@@ -1,3 +1,17 @@
 .messagesColumn {
-    overflow: auto; 
-  }
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.username {
+    font-weight: bold;
+    font-size: large;
+}
+
+p {
+    word-wrap: break-word;
+}
+
+.msg {
+    margin: 2%;
+}

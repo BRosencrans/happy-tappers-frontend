@@ -1,34 +1,35 @@
 .card {
-  position: relative;
-  
+    position: relative;
+    background-color: #f9c375 !important;
     max-width: 800px;
     margin: 40px auto;
-  
 }
 .card img {
-  width: 100%;
-  display: block;
-  border: 2px solid #fff;
-  border-radius: 6px;
+    width: 100%;
+    display: block;
+    border: 2px solid #f9c375;
+    border-radius: 6px;
 }
 
 /* front of card - the picture */
 .card .front {
-  transform: rotateY(90deg);
-  transition: all ease-in 0.2s;
-  position: absolute;
+    transform: rotateY(90deg);
+    transition: all ease-in 0.2s;
+    position: absolute;
 }
 .flipped .front {
-  transform: rotateY(0deg);
-  transition-delay: 0.2s;
+    transform: rotateY(0deg);
+    transition-delay: 0.2s;
 }
 
 /* back of card - cover */
 .card .back {
-  transition: all ease-in 0.2s;
-  transition-delay: 0.2s;
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+    background-color: #f9c375;
 }
 .flipped .back {
-  transform: rotateY(90deg);
-  transition-delay: 0s;
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+    background-color: #f9c375;
 }

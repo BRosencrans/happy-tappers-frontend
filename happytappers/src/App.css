@@ -1,15 +1,49 @@
 h1 {
-    margin: 30px auto;
+    margin: 0 auto;
 }
 
+body {
+    background-color: #6fb2a5 !important;
+}
 #root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #6fb2a5;
-    color: white;
+    color: #fcf8eb;
 }
 
 label {
     color: gray;
+}
+
+th,
+thead,
+td {
+    color: #616b69;
+    text-align: center;
+    width: 50%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fa8383;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ea6363;
+}
+
+button {
+    margin: 1rem;
 }
